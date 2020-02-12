@@ -1,22 +1,27 @@
-class SearchesController < ApplicationController
-  def search
-  end
+require 'require_all'
 
-  def foursquare
-    @resp = Faraday.get 'https://api.foursquare.com/v2/venues/search' do |req|
-      req.params['client_id'] = '2GU1DYZ5K5PZD1OG2OVGT24B4D2OQYWEJAQF3QE4QCOSBCS0'
-      req.params['client_secret'] = '5IN4QC15GHSI5GQ45F121MUAA140OXG4S31DINBXJQXLJQYA'
-      req.params['v'] = '20160201'
-      req.params['near'] = params[:zipcode]
-      req.params['query'] = 'coffee shop'
-    end
-    body = JSON.parse(@resp.body)
-   if @resp.success?
-     @venues = body["response"]["venues"]
-   else
-     @error = body["meta"]["errorDetail"]
+class SearchesController < ApplicationController
+
+
+
+
+   def search
+     @resp = Faraday.get('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,XRP,BCH,BSV,LTC,USDT,EOS&tsyms=USD')
+     @body = JSON.parse(@resp.body)
+
+        if @resp.success?
+            @crypto = Cryptocurrency.new(@body)
+          else
+           @error = body["meta"]["errorDetail"]
+        end
+
+       rescue Faraday::ConnectionFailed
+         @error = "There was a timeout. Please try again."
+
+
+
+     render 'dashboard'
    end
 
-   render 'search'
- end
+
 end
