@@ -20,7 +20,7 @@ class SearchesController < ApplicationController
 
 
 
-     render 'dashboard'
+     render 'seach'
    end
 
 
