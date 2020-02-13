@@ -195,7 +195,7 @@ DEPENDENCIES
   hoe (~> 3.22)
   jbuilder (~> 2.0)
   jquery-rails
-  pg (~> 0.18)
+  pg
   pry
   rails (~> 5.0.0)
   rake-compiler (~> 1.1)
