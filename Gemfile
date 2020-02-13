@@ -19,7 +19,7 @@ gem 'pry'
 gem 'faraday'
 gem 'require_all'
 gem 'bootstrap'
-gem 'bootstrap-sass'
+#gem 'bootstrap-sass'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
