@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'blockcoinx.herokuapp.com', to: 'searches#search'
+  get '/', to: 'searches#search'
 
 
 
