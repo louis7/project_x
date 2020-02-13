@@ -20,7 +20,7 @@ class SearchesController < ApplicationController
 
 
 
-     render 'seach'
+     render 'search'
    end
 
 
